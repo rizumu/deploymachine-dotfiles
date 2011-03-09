@@ -1,0 +1,21 @@
+TECHNIQUE thx @rtomayko
+
+My home directory is a real git work tree. The repository
+data is stored in ~/.git. Some people like to keep the
+actual work tree somewhere else and symlink files into
+their home. I don't do that.
+
+One issue with this approach is that 'git status' can be
+overly noisy, since most files are not tracked and show up
+as "other" files. I get around this by ignoring all files
+that I haven't added explicitly -- this is as simple as
+adding a "*" line to the ~/.git/info/exclude file.
+
+Another issue is how best to handle machine specific or
+sensitive information (usernames / passwords, API keys,
+etc.) included in dotfiles. I simply do not add any files
+to the repository unless they're "clean". In some cases,
+that means not adding stuff that I'd otherwise like to
+have tracked. For example, I'd like to publish my
+~/.gitconfig file but it contains my secret github API
+key.
