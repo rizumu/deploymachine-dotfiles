@@ -6,10 +6,12 @@ if [ $? -eq 1 ] ; then
 fi
 
 # Setting the path to custom scripts in bin folder
-export PATH=$PATH:$HOME/bin/
+if [ -d $HOME/bin/ ]; then
+    export PATH=$PATH:$HOME/bin/
+fi
 
 #default text editor
-export editor="zile"
+export editor="vim"
 
 # GIT
 if [ -f $HOME/.bash_completion.d/git-completion.bash ]; then
